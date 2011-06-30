@@ -1,0 +1,11 @@
+Layout editor
+=============
+Base on mootools, this lib permit to edit directly a layout, and place inside different conteners.
+
+Principle
+=========
+Pose each div after or before another. To type of container exist, vertical and horizontal. Each ensemble with horizontal(s) container(s) is follow by a clearer.
+
+Usage
+=====
+As is, this library is more a school tools give to lerning how a good layout must be make. No absolute, just div with a width and float at the good place.
