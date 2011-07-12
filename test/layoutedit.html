@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+	<title>Layout editor</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		#pg{width:700px;border:thin solid black; min-height:300px}	
+	</style>
+	
+	<!-- appel styles -->
+	<link type="text/css" rel="styleSheet" href="../lib/assets/layoutedit.css" />
+	<!-- appel mootools -->
+	<script type="text/javascript" src="./lib/mootools-1.2.5-core-nc.js"></script>
+	<script type="text/javascript" src="./lib/mootools-1.2.4.4-more.js"></script>
+	<!-- appel layouedit -->
+	<script type="text/javascript" src="../lib/contener.js"></script>
+	<script type="text/javascript" src="../lib/column.js"></script>
+	<script type="text/javascript" src="../lib/line.js"></script>
+	<script type="text/javascript" src="../lib/mesurebox.js"></script>
+	<script type="text/javascript" src="../lib/toolbar.js"></script>
+	<script type="text/javascript" src="../lib/texts.js"></script>
+	<script type="text/javascript" src="../lib/layoutedit.js"></script>
+	<!-- appel lib tiers -->
+	<script type="text/javascript" src="./lib/loremipsumgenerator.js"></script>
+	<script type="text/javascript">
+		var layoutEdit;
+		window.addEvent('domready', function() {
+			layoutEdit = new LayoutEdit($('pg'));
+		});
+	</script>
+
+</head>
+<body>
+
+	<div style="float:left; width:710px;">
+		<h1>Layout editor</h1>
+		<p>Le canvas ci dessous est fix&eacute; &agrave; 700px</p>
+		<div id="pg" class="test layout"></div>
+	</div>
+	<div style="width:300px;float:left; Padding: 0 0 0 20px">
+		<h2>L&eacute;gende</h2>
+		<p>Les colonnes sont en bleu</p>
+		<p>Les lignes sont en rose</p>
+		<p>Les colonnes et les lignes finales sont en vert, elles peuvent servir de conteneur</p>
+		<p>Le nom des conteneurs est &eacute;ditable par double clic</p>
+		<h2>Code r&eacute;sultant</h2>
+		<p><a href="#" onclick="
+			var mask = new RegExp(layoutEdit.id,'g');
+			var css= layoutEdit.getCss();
+			$('layerStyle').set('text', css.replace(mask,'#layerHtml'));
+			$('layerHtml').set('html', layoutEdit.getHtml());
+			$('layerHtml').setStyle('width', layoutEdit.element.obj.realWidth);
+			$('layerHtml').getElements('.final').each(
+				function(e){
+					new Element('h3').set('text', e.get('data-title')).inject(e);
+					new Element('p').set('text', loremIpsum(Math.round(e.getStyle('width').toInt()/10))).inject(e);
+				}
+			)
+			$('css').set('text', layoutEdit.getCss());
+			$('html').set('text', layoutEdit.getHtml());
+			$('json').set('text', layoutEdit.getJson());
+			return false;
+		">G&eacute;n&eacute;rer le code</a></p>
+		<fieldset>
+			<form>
+				<label>Json text
+					<textarea id="toloadjson">
+					</textarea>
+					<input type="submit" onclick='layoutEdit.load($("toloadjson").value); return false;'>
+				</label>
+			</form>
+		</fieldset>
+	</div>
+	<div style="clear:both"></div>
+
+	<h3>Rendu html</h3>
+	<style>#layerHtml p{padding:0px 5px; text-align:justify}</style>
+	<style id="layerStyle"></style>
+	<div id="layerHtml"></div>
+	<h3>Contenu de style</h3>
+	<pre id="css"></pre>
+	<h3>Contenu HTML</h3>
+	<pre id="html"></pre>
+	<h3>Contenu JSON</h3>
+	<pre id="json"></pre>
+</menu>
+</body>
+</html>

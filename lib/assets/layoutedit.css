@@ -1,0 +1,94 @@
+/* Eléments généraux */
+.lightle, .le{font-family:arial;}
+.lightle{padding-right:2px; padding-bottom:2px}
+.lightle p, .le p{line-height:20px}
+.le .clearer, .lightle .clearer{clear:both;height:0px; min-height:0px;font-size:0px}
+.le .title.canvas, .lightle .title.canvas{position:absolute; text-align:center; margin:auto; padding:0px 5px; top:-10px;	background:white;border:solid 1px black;border-left:0px;height:20px; font-size:12px; z-index:10; right:-1px; width:120px;}
+
+/* Représentation des colonnes et des lignes */
+.le .col, .le .lin{text-align:center; position:relative; min-height:20px;padding:0px; margin:0px; padding-top:20px;margin-top:2px;}
+.le .lin{margin:2px;padding:20px 2px 2px 2px}
+.le .col>p input.box, .le .lin>p input.box{background:none repeat scroll 0 0 #FAFAFA;border:0 none;height:12px;width:33px;font-size:10px}
+.le .col, .lightle .col{float:left;height:100%}
+/*.le .lin{clear:both;}*/
+.le .col p, .le .lin p{position:absolute; text-align:center; margin:0; padding:0px 0px; top:-10px; left:-1px; background:white;border-style:solid; border-width:1px; width:35px; height:20px; font-size:12px;	z-index:10;}
+.le .col.first{margin-left:0px}
+.le .col.after{margin-left:-1px}
+
+
+.lightle .col p, .lightle .lin p{display:none}
+.lightle .col.contener p, .lightle .lin.contener p{display:block}
+
+
+/* Colorisation */
+.le .col, .le .col>p, .le .col>div.toolbar/*, .le .col .mesures .contener*/{border:thin solid blue}
+.le .lin, .le .lin>p, .le .lin>div.toolbar/*, .le .lin .mesures .contener */{border:thin solid pink}
+.le .col{background-color:#ddddff}
+.le .lin{background-color:#ffeeee}
+.le .col.contener, .le .lin.contener{background-color:#eeffee}
+.le .col.contener, .le .lin.contener, .le .col.contener p, .le .lin.contener p,
+.le .col.contener div.toolbar, .le .lin.contener div.toolbar,
+.lightle .col.contener, .lightle  .lin.contener
+/*.le .lin.contener .mesures .contener, .le .col.contener .mesures .contener*/
+{border:thin solid green}
+
+.lightle .col.contener, .lightle  .lin.contener{margin:2px 0px 0px 2px}
+
+	
+/* Représentation des mesures */
+.lightle .mesures{display:none}
+.le .mesures{position:absolute; top:-11px; font-size:7px; text-align:center; width:100%; }
+.le .mesures  .contener{position:relative; margin:auto; width:43px;  /* border:thin dotted white; -moz-border-radius: 5px; border-radius: 5px;*/ background-color:white}
+.le .mesures.fixed  .contener{ /*border:thin dotted black;*/}
+.le .mesures .activ{font-weight:bold; font-size:10px}
+.le .mesures .activ a{color:black}
+.le .mesures a{color:blue; text-decoration:none}
+.le .mesures .mesuresP , .le .mesures .mesuresM{width:35px}
+.le .mesures  .fixed{background:url('icons.gif') -305px center no-repeat white; width:10px; height:15px; float:right; margin-top:2px}
+.le .mesures.fixed .fixed{background:url('icons.gif') -325px center no-repeat white; }
+.le .mesures  .fixed a{width:100%; height:100%;display:block}
+
+
+
+/* Représentation des curseurs */
+.le .CursorResizeCols{cursor:e-resize;}
+.le .CursorMove{cursor:move;}
+
+/* Représentation des barres de mouvement */
+.le .movebar{width:20px; cursor:e-resize; position:absolute; top:0px; height:100%; display:none}
+.le .movebar.visible{display:block; z-index:10}
+.le #mb_right{right:-11px}
+.le #mb_left{left:-10px}
+
+/* Barre d'outils et boutons */
+.le div.toolbar.visible{display:block;z-index:100}
+.lightle div.toolbar.visible{display:none}
+.lightle div.toolbar{display:none}
+.le div.toolbar{background:white; display:none; position:absolute; top:-10px; left:35px;width:100px;height:20px;border:1px solid;border-left-width:0px !important}
+.le div.toolbar.toolbar_can, .lightle div.toolbar.toolbar_can{background:white; display:block;position:absolute; top:-10px; left:35px; right:120px;width:100px;height:20px;border:1px solid;border-left-width:1px!important; border-right:0px !important; left:auto;}
+
+.le div.button, .lightle div.button{width:20px;height:20px;float:left}
+.le div.button:hover, .lightle div.button:hover{background-color:#CCCCCC}
+.le div.button a, .lightle div.button a {display:block; width:100%;height:100%}
+.le div#button_properties,
+.le div#button_properties{background-image:url('icons.gif'); background-position:0px 0px}
+.le div#button_del_col{background-image:url('icons.gif'); background-position: -40px 0px}
+.le div#button_del_lin{background-image:url('icons.gif'); background-position: -60px 0px}
+.le div.toolbar.canvas { width:80px}
+.le div.toolbar.canvas div#button_del_lin{display:none;}
+.button.view_just_conteners		{background-image:url('icons.gif'); background-position: 0px -20px}
+.le div#button_add_right		{background-image:url('icons.gif'); background-position: -220px 0px}
+.le div#button_add_left			{background-image:url('icons.gif'); background-position: -240px 0px}
+.le div#button_add_top			{background-image:url('icons.gif'); background-position: -260px 0px}
+.le div#button_add_bottom		{background-image:url('icons.gif'); background-position: -280px 0px}
+.le div#button_add_inside_right	{background-image:url('icons.gif'); background-position: -80px 0px}
+.le div#button_add_inside_left	{background-image:url('icons.gif'); background-position: -100px 0px}
+.le div#button_add_inside_top	{background-image:url('icons.gif'); background-position: -140px 0px}
+.le div#button_add_inside_bottom{background-image:url('icons.gif'); background-position: -120px 0px}
+.le div#b_fusion				{background-image:url('icons.gif'); background-position: -160px 0px}
+.le div#b_defusi				{background-image:url('icons.gif'); background-position: -180px 0px}
+
+.le div.button.move{height:20px; width:20px; background-image:url('icons.gif'); background-position: -20px -20px; display:none; position:absolute; top:0px; right:0px;}
+.le div.button.visible{display:block;}
+.lightle div.button.move{display:none;}
+.lightle div.button.move.visible{display:none;}
